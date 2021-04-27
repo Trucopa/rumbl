@@ -7,7 +7,7 @@ defmodule RumblWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_rumbl_key",
-    signing_salt: "PTPwIDPU"
+    signing_salt: "TVhsJrJY"
   ]
 
   socket "/socket", RumblWeb.UserSocket,

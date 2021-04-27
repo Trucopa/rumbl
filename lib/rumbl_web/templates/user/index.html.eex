@@ -1,11 +1,28 @@
 <h1>Listing Users</h1>
 
-<table class="table">
-    <%= for user <- @users do %>
+<table>
+  <thead>
     <tr>
-        <td><%= render "user.html", user: user%></td>
-        <td><%= link "View", to: Routes.user_path(@conn, :show, user.id) %></td>
-
+      <th>Name</th>
+      <th>Username</th>
+      <th></th>
     </tr>
-    <% end %>
+  </thead>
+
+  <tbody>
+<%= for user <- @users do %>
+    <tr>
+      <td><b><%= first_name(user) %></b> (<%= user.id %>) </td>
+      <td><%= user.username %></td>
+
+      <td>
+        <span><%= link "View", to: Routes.user_path(@conn, :show, user) %></span>
+        <!--<span><%= link "Edit", to: Routes.user_path(@conn, :edit, user) %></span>-->
+        <!--<span><%= link "Delete", to: Routes.user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"] %></span>-->
+      </td>
+    </tr>
+<% end %>
+  </tbody>
 </table>
+
+<!--<span><%= link "New User", to: Routes.user_path(@conn, :new) %></span>-->
