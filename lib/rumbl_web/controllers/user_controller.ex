@@ -19,7 +19,7 @@ defmodule RumblWeb.UserController do
     case Users.create_user(user_params) do
       {:ok, user} ->
         conn
-        |> Rumbl.Auth.login(user)
+        |> RumblWeb.Auth.login(user)
         |> put_flash(:info, "#{user.name} created!")
         |> redirect(to: Routes.user_path(conn, :show, user))
 
