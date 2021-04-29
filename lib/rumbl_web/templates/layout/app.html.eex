@@ -12,10 +12,15 @@
     <header>
       <section class="container">
         <nav role="navigation">
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
+          <ul class="breadcrumb text-right">
+            <%= if @current_user do %>
+              <li class=""><%= @current_user.username %></li>
+              <li class="">
+                <%= link "Log out", to: Routes.session_path(@conn, :delete, @current_user), method: "delete" %>
+              </li>
+            <% else %>
+              <li class=""><%= link "Register", to: Routes.user_path(@conn, :new) %></li>
+              <li class=""><%= link "Log in", to: Routes.session_path(@conn, :new) %></li>
             <% end %>
           </ul>
         </nav>

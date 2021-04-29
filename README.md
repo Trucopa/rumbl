@@ -24,3 +24,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 Dont forget to start your postegres service in linux
 
   $ sudo service postegresql start
+
+If you messed up your migrations
+
+  $ mix ecto.reset
