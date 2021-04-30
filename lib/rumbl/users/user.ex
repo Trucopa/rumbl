@@ -7,6 +7,7 @@ defmodule Rumbl.Users.User do
     field :password, :string, virtual: true
     field :password_hash, :string
     field :username, :string
+    has_many :videos, Rumbl.Videos.Video
 
     timestamps()
   end
